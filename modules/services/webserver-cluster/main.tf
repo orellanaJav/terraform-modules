@@ -47,8 +47,8 @@ resource "aws_launch_configuration" "example" {
 
   user_data = templatefile("${path.module}/user-data.sh", {
     server_port = var.server_port,
-    db_address  = 1,
-    db_port     = 1
+    db_address  = data.terraform_remote_state.db.outputs.address,
+    db_port     = data.terraform_remote_state.db.outputs.port
     }
   )
 
