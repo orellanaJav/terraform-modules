@@ -79,7 +79,7 @@ resource "aws_autoscaling_group" "example" {
 
     content {
       key                 = tag.key
-      value               = tag.key
+      value               = tag.value
       propagate_at_launch = true
     }
   }
